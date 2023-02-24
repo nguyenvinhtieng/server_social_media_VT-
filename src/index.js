@@ -4,10 +4,10 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const server = require("http").Server(app);
 const io = require("socket.io")(server, { cors: { origin: "*" } });
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.json())
-app.use(cors())
 const { PORT } = require('./credentials')
 const port = process.env.PORT || PORT
 const route = require('./route')
